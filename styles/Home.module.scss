@@ -1,0 +1,60 @@
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	//justify-content: center;
+	//align-items: center;
+	flex-direction: column;
+	background-color: #17002F;
+	background-image: url('../images/banner.png');
+	background-repeat: no-repeat;
+	background-size: 793px 680px;
+	background-position: right;
+
+	h1 {
+		//font-family: 'Karla';
+		//font-style: normal;
+		font-weight: 700;
+		font-size: 72px;
+		line-height: 84px;
+		letter-spacing: 4px;
+		color: #FFFFFF;
+		margin: 0;
+	}
+
+	h2 {
+		font-family: 'Karla';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 37px;
+		color: #FFFFFF;
+		margin: 0;
+		margin: 64px 0;
+	}
+}
+
+.coverText {
+	width: 500px;
+	margin-left: 157px;
+	margin-top: 128px;
+}
+
+.seemore {
+	height: 66px;
+	width: 231px;
+	border-radius: 11px;
+	background: #FFC107;
+	//font-family: 'Karla';
+	//font-style: normal;
+	font-weight: 700;
+	font-size: 23px;
+	cursor: pointer;
+	
+	a {
+		color: #212121;
+	}
+}
+// сделал, чтоб при наведении кнопка была активная
+.seemore:hover {
+	box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+}

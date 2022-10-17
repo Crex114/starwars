@@ -1,0 +1,42 @@
+.wrapper {
+	min-height: 100%;
+	//display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #17002F;
+
+}
+
+.content {
+	position: relative;
+	font-size: 700px;
+	font-weight: 700;
+	color: #898195;
+}
+
+.image {
+	position: absolute;
+	top: 120px;
+	right: 600px;
+}
+
+.return {
+	height: 66px;
+	width: 231px;
+	border-radius: 11px;
+	background: #73D677;
+	//font-family: 'Karla';
+	//font-style: normal;
+	font-weight: 700;
+	font-size: 23px;
+	cursor: pointer;
+	
+	a {
+		color: #212121;
+	}
+}
+// сделал, чтоб при наведении кнопка была активная
+.return:hover {
+	box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+}
