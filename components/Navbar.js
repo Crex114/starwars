@@ -5,7 +5,7 @@ import styles from "../styles/Navbar.module.scss";
 
 const navigation = [
 	{ id: 1, title: 'Home', path: '/' },
-	{ id: 2, title: 'Characters', path: '/characters' },
+	{ id: 2, title: 'Peoples', path: '/people' },
 ];
 
 const Navbar = () => {

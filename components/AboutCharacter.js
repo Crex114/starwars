@@ -1,17 +1,19 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 
-const aboutCharacter = ({ show, onHide }) => {
+const aboutCharacter = ({ show, onHide, data }) => {
+    console.log(data.name)
     return (
         <Modal show={show}
         onHide={onHide}>
             <Modal.Header closeButton>
-                <Modal.Title>Modal title</Modal.Title>
+                <p>Modal title</p>
             </Modal.Header>
 
-            <Modal.Body>
-                <p>Modal body text goes here.</p>
-            </Modal.Body>
+            <p>
+                <p>Modal: {data.name}</p>
+                <p>{data.height}</p>
+            </p>
 
         </Modal>
     );

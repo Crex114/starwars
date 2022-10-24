@@ -4,11 +4,45 @@
     grid-template-rows: 137px 137px 137px;
     gap: 45px 35px;
     justify-content: center;
-	align-items: center;
+    align-items: center;
 }
 
 .card {
 
     background: #F0F0F0;
     border-radius: 8px;
+}
+.cardboxTages {
+    display: flex;
+}
+
+.tags {
+    height: 16px;
+    width: 60px;
+    margin-right: 6px;
+    box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #212121;
+}
+
+.male {
+    background: #73D677;
+}
+
+.female {
+    background: #C956FF;
+}
+
+.hermaphrodite {
+    background: #F5DB13;
+}
+
+.birth {
+    background: #07D6F2;
 }
