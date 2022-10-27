@@ -16,10 +16,10 @@ const Error = () => {
 	//     router.push('/');
 	//   }, 3000);
 	// }, [router]);
-	useEffect(() => {
-		const q = document.querySelector('header')
-		q.style.display = 'none'		
-	})
+	// useEffect(() => {
+	// 	const q = document.querySelector('header')
+	// 	q.style.display = 'none'		
+	// })
 
 	return (
 		<div className={styles.wrapper}>
