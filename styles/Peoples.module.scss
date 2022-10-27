@@ -106,15 +106,17 @@
 
     .page,
     .curpage {
-        border: 1px solid lightgray;
+        border: 2px solid lightgray;
+        background-color: lightgray;
         border-radius: 100%;
-        padding: 5px 10px;
+        padding: 6px;
         margin: 0 10px;
         cursor: pointer;
     }
 
     .curpage {
         border: 2px solid gray;
+        background-color: gray;
         font-weight: 700;
     }
 }

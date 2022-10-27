@@ -61,7 +61,7 @@ const People = () => {
 				{pages.map((page, index) => <span
 					key={index}
 					className={currentPage == page ? styles.curpage : styles.page}
-					onClick={() => dispatch(setCurrentPage(page))}>{page}</span>)}
+					onClick={() => dispatch(setCurrentPage(page))}></span>)}
 			</div>
 		</>
 	);
