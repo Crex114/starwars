@@ -1,21 +1,66 @@
-.maincontent {
-    height: 650px;
+.title {
+    text-align: center;
 }
+
+.maincontent {}
 
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 352px);
-    grid-template-rows: repeat(3, 137px);
     gap: 45px 35px;
     justify-content: center;
     align-items: center;
 }
 
 .card {
-
+    padding: 15px 25px;
     background: #F0F0F0;
     border-radius: 8px;
     cursor: pointer;
+    box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+
+    & .name {
+        h3 {
+            font-family: 'Karla';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 21px;
+        }
+
+    }
+
+    & .parambody {
+        display: grid;
+        grid-template-columns: repeat(2, 38px);
+        grid-template-rows: repeat(1, 38px);
+        gap: 8px 13px;
+        margin: 24px 0 8px 0;
+        text-align: center;
+        font-family: 'Karla';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 18px;
+
+        & .num {
+            border: 3px solid #212121;
+            border-radius: 19px;
+
+            & span {
+                position: absolute;
+                transform: translate(-50%, 40%);
+                color: #212121;
+            }
+        }
+
+        & .var {
+            line-height: 18px;
+            color: #4B4B4B;
+        }
+
+
+    }
 }
 
 .cardboxTages {
@@ -23,8 +68,9 @@
 }
 
 .tags {
+    display: inline-block;
     height: 16px;
-    width: 60px;
+    padding: 0 15px;
     margin-right: 6px;
     box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
     border-radius: 11px;
@@ -76,8 +122,8 @@
 .search {
     display: flex;
     justify-content: center;
-    margin: 0 auto;
     margin: 10px 0;
+    margin-bottom: 30px;
 
     & input {
         border-radius: 40px;

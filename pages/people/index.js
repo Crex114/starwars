@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { getRepos } from "../../store/actions/repos";
 import { setCurrentPage } from '../../store/reducers/reposReducer'
 import { createPages } from "../../utils/pagesCreator";
-import Heading from "../../components/Heading";
 import styles from '../../styles/Peoples.module.scss'
 import Peoples from "../../components/Peoples";
 import loader from '../../images/loader.png'
@@ -37,7 +36,7 @@ const People = () => {
 			<Head>
 				<title>Peoples</title>
 			</Head>
-			<Heading tag='h1' size={totalCount} text="Peoples for you to choose your favorite" />
+			<h1 className={styles.title}>{totalCount} Peoples for you to choose your favorite</h1>
 			<div className={styles.search}>
 				<input value={searchValue}
 					onChange={(e) => setSearchValue(e.target.value)}
