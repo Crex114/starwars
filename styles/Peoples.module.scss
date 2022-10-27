@@ -30,12 +30,16 @@
 
     }
 
+    & .wrapperparam {
+        display: flex;
+    }
+
     & .parambody {
         display: grid;
-        grid-template-columns: repeat(2, 38px);
-        grid-template-rows: repeat(1, 38px);
+        grid-template-columns: repeat(1, 38px);
+        grid-template-rows: repeat(2, 38px);
         gap: 8px 13px;
-        margin: 24px 0 8px 0;
+        margin: 24px 14px 8px 0;
         text-align: center;
         font-family: 'Karla';
         font-style: normal;

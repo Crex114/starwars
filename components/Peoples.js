@@ -26,13 +26,26 @@ const Peoples = (props) => {
         <Link href={`/people/${i.url.split('people/')[1]}`}>
             <div className={styles.card}>
                 <div className={styles.name}><h3>{i.name}</h3></div>
-                <div className={styles.parambody}>
-                    <div className={styles.num}><span>{i.height}</span></div>
-                    <div className={styles.num}><span>{i.mass}</span></div>
-                    <div className={styles.var}>height</div>
-                    <div className={styles.var}>mass</div>
+                <div className={styles.wrapperparam}>
+                    <div className={styles.parambody}>
+                        {(i.height !== 'unknown') ?
+                            <>
+                                <div className={styles.num}><span>{i.height}</span></div>
+                                <div className={styles.var}>height</div>
+                            </>
+                            :
+                            null}
+                    </div>
+                    <div className={styles.parambody}>
+                        {(i.mass !== 'unknown') ?
+                            <>
+                                <div className={styles.num}><span>{i.mass}</span></div>
+                                <div className={styles.var}>mass</div>
+                            </>
+                            :
+                            null}
+                    </div>
                 </div>
-
                 <div className={styles.cardboxTages}>
                     {cardboxTages(i.gender)}
                     {(i.birth_year !== 'unknown') ? <div className={classNames(styles.tags, styles.birth)}>{i.birth_year}</div> : null}
