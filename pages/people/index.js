@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import Head from "next/head";
+import Image from 'next/image'
 import { getRepos } from "../../store/actions/repos";
 import { setCurrentPage } from '../../store/reducers/reposReducer'
 import { createPages } from "../../utils/pagesCreator";
 import Heading from "../../components/Heading";
 import styles from '../../styles/Peoples.module.scss'
 import Peoples from "../../components/Peoples";
+import loader from '../../images/loader.png'
 
-const People = ({ count }) => {
+const People = () => {
 
 	const dispatch = useDispatch()
 	const repos = useSelector(state => state.repos.items)
@@ -35,19 +37,23 @@ const People = ({ count }) => {
 			<Head>
 				<title>Peoples</title>
 			</Head>
-			<Heading tag='h1' size={count} text="Peoples for you to choose your favorite" />
+			<Heading tag='h1' size={totalCount} text="Peoples for you to choose your favorite" />
 			<div className={styles.search}>
-				<input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} type="text" placeholder="Input people name" />
-				<button onClick={() => searchHandler()}>Search</button>
+				<input value={searchValue}
+					onChange={(e) => setSearchValue(e.target.value)}
+					onKeyPress={searchHandler}
+					type="text" placeholder="find..." />
 			</div>
-			<div className={styles.wrapper}>
+			<div className={styles.maincontent}>
 				{
 					isFetching === false
 						?
-						repos.map((repo, index) => <Peoples repo={repo} key={index} />)
+						<div className={styles.wrapper}>
+							{repos.map((repo, index) => <Peoples repo={repo} key={index} />)}
+						</div>
 						:
-						<div className="fetching">
-
+						<div className={styles.loader}>
+							<Image src={loader} width={100} height={100} alt="logo" />
 						</div>
 				}
 			</div>

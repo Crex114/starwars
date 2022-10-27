@@ -1,3 +1,7 @@
+.maincontent {
+    height: 650px;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 352px);
@@ -72,14 +76,28 @@
 .search {
     display: flex;
     justify-content: center;
+    margin: 0 auto;
     margin: 10px 0;
 
     & input {
-        padding: 5px;
-        width: 20%;
+        border-radius: 40px;
+        border: none;
+        height: 56px;
+        width: 1094px;
+        background: #F2F2F2;
+        box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+        font-family: 'Source Sans Pro';
+        font-size: 16px;
+        text-indent: 2%;
     }
 
     & button {
         padding: 5px;
     }
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

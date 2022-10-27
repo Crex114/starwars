@@ -23,19 +23,17 @@ const Peoples = (props) => {
     }
 
     return (
-        <div>
-            <Link href={`/people/${i.url.split('people/')[1]}`}>
-                <div className={styles.card}>
-                    <div>{i.name}</div>
-                    <div>{i.height}</div>
-                    <div>{i.mass}</div>
-                    <div className={styles.cardboxTages}>
-                        {cardboxTages(i.gender)}
-                        {(i.birth_year !== 'unknown') ? <div className={classNames(styles.tags, styles.birth)}>{i.birth_year}</div> : null}
-                    </div>
+        <Link href={`/people/${i.url.split('people/')[1]}`}>
+            <div className={styles.card}>
+                <div>{i.name}</div>
+                <div>{i.height}</div>
+                <div>{i.mass}</div>
+                <div className={styles.cardboxTages}>
+                    {cardboxTages(i.gender)}
+                    {(i.birth_year !== 'unknown') ? <div className={classNames(styles.tags, styles.birth)}>{i.birth_year}</div> : null}
                 </div>
-            </Link>
-        </div>
+            </div>
+        </Link>
     );
 };
 
