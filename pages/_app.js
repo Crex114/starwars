@@ -2,8 +2,8 @@ import Image from "next/image";
 import Head from "next/head";
 import Layout from "../components/Layout";
 import { Provider } from 'react-redux';
-import { store } from '../store/index';
 import '../styles/globals.scss';
+import {store} from "../store/reducers";
 
 const MyApp = ({ Component, pageProps }) => (
 

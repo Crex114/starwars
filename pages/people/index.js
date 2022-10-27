@@ -1,37 +1,33 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import Head from "next/head";
-import Link from "next/link";
-import { useDispatch, useSelector } from 'react-redux'
-import { useState } from "react";
+import { getRepos } from "../../store/actions/repos";
+import { setCurrentPage } from '../../store/reducers/reposReducer'
+import { createPages } from "../../utils/pagesCreator";
 import Heading from "../../components/Heading";
-import AboutCharacter from "../../components/AboutCharacter";
-import classNames from 'classnames';
-//import CharactersWrapper from "../../components/CharactersWrapper";
-import styles from '../../styles/Characters.module.scss'
+import styles from '../../styles/Peoples.module.scss'
+import Peoples from "../../components/Peoples";
 
-export const getServerSideProps = async () => {
-	const response = await fetch('https://swapi.dev/api/people/');
-	const data = await response.json();
+const People = ({ count }) => {
 
-	return {
-		props: {
-			peoples: data.results
-		}
-	}
-};
+	const dispatch = useDispatch()
+	const repos = useSelector(state => state.repos.items)
+	const isFetching = useSelector(state => state.repos.isFetching)
+	const currentPage = useSelector(state => state.repos.currentPage)
+	const totalCount = useSelector(state => state.repos.totalCount)
+	const perPage = useSelector(state => state.repos.perPage)
+	const [searchValue, setSearchValue] = useState("")
+	const pagesCount = Math.ceil(totalCount / perPage)
+	const pages = []
+	createPages(pages, pagesCount, currentPage)
 
-const People = ({ peoples }) => {
+	useEffect(() => {
+		dispatch(getRepos(searchValue, currentPage, perPage))
+	}, [currentPage])
 
-	const cardboxTages = (gender) => {
-		switch (gender) {
-			case 'male':
-				return <div className={classNames(styles.tags, styles.male)}>{gender}</div>
-			case 'female':
-				return <div className={classNames(styles.tags, styles.female)}>{gender}</div>
-			case 'hermaphrodite':
-				return <div className={classNames(styles.tags, styles.hermaphrodite)}>{gender}</div>
-			default:
-				null
-		}
+	function searchHandler() {
+		dispatch(setCurrentPage(1))
+		dispatch(getRepos(searchValue, currentPage, perPage))
 	}
 
 	return (
@@ -39,25 +35,29 @@ const People = ({ peoples }) => {
 			<Head>
 				<title>Peoples</title>
 			</Head>
-			<Heading tag='h1' size={peoples.length} text="Peoples for you to choose your favorite" />
-			<div className={styles.wrapper} >
-				{peoples.map((i) => (
-					<Link href={`/people/${i.url.split('people/')[1]}`} key={i.name}>
-						<div className={styles.card}>
-							<div>{i.name}</div>
-							<div>{i.height}</div>
-							<div>{i.mass}</div>
-							<div className={styles.cardboxTages}>
-								{cardboxTages(i.gender)}
-								{(i.birth_year !== 'unknown') ? <div className={classNames(styles.tags, styles.birth)}>{i.birth_year}</div> : null}
-							</div>
-						</div>
-					</Link>
+			<Heading tag='h1' size={count} text="Peoples for you to choose your favorite" />
+			<div className={styles.search}>
+				<input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} type="text" placeholder="Input people name" />
+				<button onClick={() => searchHandler()}>Search</button>
+			</div>
+			<div className={styles.wrapper}>
+				{
+					isFetching === false
+						?
+						repos.map((repo, index) => <Peoples repo={repo} key={index} />)
+						:
+						<div className="fetching">
 
-				))}
-				{/* <AboutCharacter show={info} onHide={() => setInfo(false)} data={char} /> */}
+						</div>
+				}
 			</div>
 
+			<div className={styles.pages}>
+				{pages.map((page, index) => <span
+					key={index}
+					className={currentPage == page ? styles.curpage : styles.page}
+					onClick={() => dispatch(setCurrentPage(page))}>{page}</span>)}
+			</div>
 		</>
 	);
 };

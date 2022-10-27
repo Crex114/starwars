@@ -1,7 +1,7 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 352px 352px 352px;
-    grid-template-rows: 137px 137px 137px;
+    grid-template-columns: repeat(3, 352px);
+    grid-template-rows: repeat(3, 137px);
     gap: 45px 35px;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,9 @@
 
     background: #F0F0F0;
     border-radius: 8px;
+    cursor: pointer;
 }
+
 .cardboxTages {
     display: flex;
 }
@@ -45,4 +47,39 @@
 
 .birth {
     background: #07D6F2;
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+
+    .page,
+    .curpage {
+        border: 1px solid lightgray;
+        border-radius: 100%;
+        padding: 5px 10px;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+
+    .curpage {
+        border: 2px solid gray;
+        font-weight: 700;
+    }
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+
+    & input {
+        padding: 5px;
+        width: 20%;
+    }
+
+    & button {
+        padding: 5px;
+    }
 }

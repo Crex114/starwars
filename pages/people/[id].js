@@ -16,7 +16,6 @@ const PeopleItem = ({people}) => {
 
     const {name, height, mass, hair_color, skin_color, eye_color, birth_year, gender} = people
 
-    // const {name, height} = data
     return (
         <div>
             <div>{name}</div>
