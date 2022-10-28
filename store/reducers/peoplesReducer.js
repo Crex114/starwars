@@ -1,19 +1,19 @@
-const SET_REPOS = "SET_REPOS"
+const SET_PEOPLES = "SET_PEOPLES"
 const SET_IS_FETCHING = "SET_IS_FETCHING"
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
 
 const defaultState = {
     items: [],
     isFetching: true,
-    currentPage:1, // текущая страница
-    perPage:10, // отображать количество страниц по умолчанию
-    totalCount:0 // все полученные данные от репозитория. у меня 82
+    currentPage:1,
+    perPage:10,
+    totalCount:0
 }
 
 
-export default function reposReducer(state = defaultState, action) {
+export default function peoplesReducer(state = defaultState, action) {
     switch (action.type) {
-        case SET_REPOS:
+        case SET_PEOPLES:
             return {
                 ...state,
                 items: action.payload.results,
@@ -35,6 +35,6 @@ export default function reposReducer(state = defaultState, action) {
     }
 }
 
-export const setRepos = (repos) => ({type:SET_REPOS, payload:repos})
+export const setPeoples = (peoples) => ({type:SET_PEOPLES, payload:peoples})
 export const setIsFetching = (bool) => ({type:SET_IS_FETCHING, payload:bool})
 export const setCurrentPage = (page) => ({type:SET_CURRENT_PAGE, payload:page})

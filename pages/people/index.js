@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import Head from "next/head";
 import Image from 'next/image'
-import { getRepos } from "../../store/actions/repos";
-import { setCurrentPage } from '../../store/reducers/reposReducer'
+import { getPeoples } from "../../store/actions/peoples";
+import { setCurrentPage } from '../../store/reducers/peoplesReducer'
 import { createPages } from "../../utils/pagesCreator";
 import styles from '../../styles/Peoples.module.scss'
 import Peoples from "../../components/Peoples";
@@ -12,23 +12,23 @@ import loader from '../../images/loader.png'
 const People = () => {
 
 	const dispatch = useDispatch()
-	const repos = useSelector(state => state.repos.items)
-	const isFetching = useSelector(state => state.repos.isFetching)
-	const currentPage = useSelector(state => state.repos.currentPage)
-	const totalCount = useSelector(state => state.repos.totalCount)
-	const perPage = useSelector(state => state.repos.perPage)
+	const peoples = useSelector(state => state.peoples.items)
+	const isFetching = useSelector(state => state.peoples.isFetching)
+	const currentPage = useSelector(state => state.peoples.currentPage)
+	const totalCount = useSelector(state => state.peoples.totalCount)
+	const perPage = useSelector(state => state.peoples.perPage)
 	const [searchValue, setSearchValue] = useState("")
 	const pagesCount = Math.ceil(totalCount / perPage)
 	const pages = []
 	createPages(pages, pagesCount, currentPage)
 
 	useEffect(() => {
-		dispatch(getRepos(searchValue, currentPage, perPage))
+		dispatch(getPeoples(searchValue, currentPage, perPage))
 	}, [currentPage])
 
 	function searchHandler() {
 		dispatch(setCurrentPage(1))
-		dispatch(getRepos(searchValue, currentPage, perPage))
+		dispatch(getPeoples(searchValue, currentPage, perPage))
 	}
 
 	return (
@@ -48,7 +48,7 @@ const People = () => {
 					isFetching === false
 						?
 						<div className={styles.wrapper}>
-							{repos.map((repo, index) => <Peoples repo={repo} key={index} />)}
+							{peoples.map((repo, index) => <Peoples repo={repo} key={index} />)}
 						</div>
 						:
 						<div className={styles.loader}>
