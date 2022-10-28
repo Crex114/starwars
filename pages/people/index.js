@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import useDebounce from '../../utils/use-debounce.js';
 import Head from "next/head";
 import Image from 'next/image'
 import { getPeoples } from "../../store/actions/peoples";
@@ -20,11 +21,16 @@ const People = () => {
 	const [searchValue, setSearchValue] = useState("")
 	const pagesCount = Math.ceil(totalCount / perPage)
 	const pages = []
+	const debouncedSearch = useDebounce(searchValue, 500)
 	createPages(pages, pagesCount, currentPage)
 
 	useEffect(() => {
 		dispatch(getPeoples(searchValue, currentPage, perPage))
 	}, [currentPage])
+
+	useEffect(() => {
+		searchHandler(debouncedSearch)
+	}, [debouncedSearch])
 
 	function searchHandler() {
 		dispatch(setCurrentPage(1))
@@ -40,7 +46,6 @@ const People = () => {
 			<div className={styles.search}>
 				<input value={searchValue}
 					onChange={(e) => setSearchValue(e.target.value)}
-					onKeyPress={searchHandler}
 					type="text" placeholder="find..." />
 			</div>
 			<div className={styles.maincontent}>
