@@ -21,35 +21,35 @@ const Peoples = (props) => {
     }
 
     return (
-        <Link href={`/people/${i.url.split('people/')[1]}`}>
-            <div className={styles.card}>
-                <div className={styles.name}><h3>{i.name}</h3></div>
-                <div className={styles.wrapperparam}>
-                    <div className={styles.parambody}>
-                        {(i.height !== 'unknown') ?
-                            <>
-                                <div className={styles.num}><span>{i.height}</span></div>
-                                <div className={styles.var}>height</div>
-                            </>
-                            :
-                            null}
-                    </div>
-                    <div className={styles.parambody}>
-                        {(i.mass !== 'unknown') ?
-                            <>
-                                <div className={styles.num}><span>{i.mass}</span></div>
-                                <div className={styles.var}>mass</div>
-                            </>
-                            :
-                            null}
-                    </div>
+        // <Link href={`/people/${i.url.split('people/')[1]}`}> // оставил ссылку для перехода на полноценную страницу
+        <>						
+            <div className={styles.name}><h3>{i.name}</h3></div>
+            <div className={styles.wrapperparam}>
+                <div className={styles.parambody}>
+                    {(i.height !== 'unknown') ?
+                        <>
+                            <div className={styles.num}><span>{i.height}</span></div>
+                            <div className={styles.var}>height</div>
+                        </>
+                        :
+                        null}
                 </div>
-                <div className={styles.cardboxTages}>
-                    {cardboxTages(i.gender)}
-                    {(i.birth_year !== 'unknown') ? <div className={classNames(styles.tags, styles.birth)}>{i.birth_year}</div> : null}
+                <div className={styles.parambody}>
+                    {(i.mass !== 'unknown') ?
+                        <>
+                            <div className={styles.num}><span>{i.mass}</span></div>
+                            <div className={styles.var}>mass</div>
+                        </>
+                        :
+                        null}
                 </div>
             </div>
-        </Link>
+            <div className={styles.cardboxTages}>
+                {cardboxTages(i.gender)}
+                {(i.birth_year !== 'unknown') ? <div className={classNames(styles.tags, styles.birth)}>{i.birth_year}</div> : null}
+            </div>
+        </>
+        // </Link>
     );
 };
 

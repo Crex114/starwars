@@ -9,6 +9,7 @@ import { createPages } from "../../utils/pagesCreator";
 import styles from '../../styles/Peoples.module.scss'
 import Peoples from "../../components/Peoples";
 import loader from '../../images/loader.png'
+import ModalPeoples from '../../components/ModalPeoples.js';
 
 const People = () => {
 
@@ -22,6 +23,8 @@ const People = () => {
 	const pagesCount = Math.ceil(totalCount / perPage)
 	const pages = []
 	const debouncedSearch = useDebounce(searchValue, 500)
+	const [modalActive, setModalActive] = useState(false)
+	const [item, setItem] = useState('')
 	createPages(pages, pagesCount, currentPage)
 
 	useEffect(() => {
@@ -35,6 +38,11 @@ const People = () => {
 	function searchHandler() {
 		dispatch(setCurrentPage(1))
 		dispatch(getPeoples(searchValue, currentPage, perPage))
+	}
+
+	const modal = (repo) => {
+		setModalActive(true)
+		setItem(repo)
 	}
 
 	return (
@@ -53,7 +61,13 @@ const People = () => {
 					isFetching === false
 						?
 						<div className={styles.wrapper}>
-							{peoples.map((repo, index) => <Peoples repo={repo} key={index} />)}
+							{peoples.map((repo, index) =>
+								<div className={styles.card}
+									key={index}
+									onClick={() => modal(repo)}>
+									<Peoples repo={repo} />
+								</div>
+							)}
 						</div>
 						:
 						<div className={styles.loader}>
@@ -68,6 +82,8 @@ const People = () => {
 					className={currentPage == page ? styles.curpage : styles.page}
 					onClick={() => dispatch(setCurrentPage(page))}></span>)}
 			</div>
+
+			<ModalPeoples active={modalActive} setActive={setModalActive} item={item} />
 		</>
 	);
 };
