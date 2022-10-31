@@ -3,9 +3,9 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import styles from '../styles/Peoples.module.scss'
 
-const Peoples = (props) => {
+const Peoples = ({item}) => {
 
-    const i = props.repo
+    const { name, height, mass, gender, birth_year } = item
 
     const cardboxTages = (gender) => {
         switch (gender) {
@@ -23,21 +23,21 @@ const Peoples = (props) => {
     return (
         // <Link href={`/people/${i.url.split('people/')[1]}`}> // оставил ссылку для перехода на полноценную страницу
         <>						
-            <div className={styles.name}><h3>{i.name}</h3></div>
+            <div className={styles.name}><h3>{name}</h3></div>
             <div className={styles.wrapperparam}>
                 <div className={styles.parambody}>
-                    {(i.height !== 'unknown') ?
+                    {(height !== 'unknown') ?
                         <>
-                            <div className={styles.num}><span>{i.height}</span></div>
+                            <div className={styles.num}><span>{height}</span></div>
                             <div className={styles.var}>height</div>
                         </>
                         :
                         null}
                 </div>
                 <div className={styles.parambody}>
-                    {(i.mass !== 'unknown') ?
+                    {(mass !== 'unknown') ?
                         <>
-                            <div className={styles.num}><span>{i.mass}</span></div>
+                            <div className={styles.num}><span>{mass}</span></div>
                             <div className={styles.var}>mass</div>
                         </>
                         :
@@ -45,8 +45,8 @@ const Peoples = (props) => {
                 </div>
             </div>
             <div className={styles.cardboxTages}>
-                {cardboxTages(i.gender)}
-                {(i.birth_year !== 'unknown') ? <div className={classNames(styles.tags, styles.birth)}>{i.birth_year}</div> : null}
+                {cardboxTages(gender)}
+                {(birth_year !== 'unknown') ? <div className={classNames(styles.tags, styles.birth)}>{birth_year}</div> : null}
             </div>
         </>
         // </Link>

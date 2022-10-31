@@ -40,9 +40,9 @@ const People = () => {
 		dispatch(getPeoples(searchValue, currentPage, perPage))
 	}
 
-	const modal = (repo) => {
+	const modal = (data) => {
 		setModalActive(true)
-		setItem(repo)
+		setItem(data)
 	}
 
 	return (
@@ -61,11 +61,11 @@ const People = () => {
 					isFetching === false
 						?
 						<div className={styles.wrapper}>
-							{peoples.map((repo, index) =>
+							{peoples.map((data, index) =>
 								<div className={styles.card}
 									key={index}
-									onClick={() => modal(repo)}>
-									<Peoples repo={repo} />
+									onClick={() => modal(data)}>
+									<Peoples item={data} />
 								</div>
 							)}
 						</div>
