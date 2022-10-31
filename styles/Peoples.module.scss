@@ -2,8 +2,6 @@
     text-align: center;
 }
 
-.maincontent {}
-
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 352px);
@@ -30,46 +28,46 @@
         }
 
     }
+}
 
-    & .wrapperparam {
-        display: flex;
+.wrapperparam {
+    display: flex;
+}
+
+.parambody {
+    display: grid;
+    grid-template-columns: 38px;
+    grid-template-rows: 38px 18px;
+    gap: 8px 0;
+    margin: 18px 14px 0 0;
+    text-align: center;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+
+    & .num {
+        border: 3px solid #212121;
+        border-radius: 19px;
+
+        & span {
+            position: absolute;
+            transform: translate(-50%, 40%);
+            color: #212121;
+        }
     }
 
-    & .parambody {
-        display: grid;
-        grid-template-columns: 38px;
-        grid-template-rows: 38px 28px;
-        gap: 8px 0;
-        margin: 18px 14px 0 0;
-        text-align: center;
-        font-family: 'Karla';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 15px;
+    & .var {
         line-height: 18px;
-
-        & .num {
-            border: 3px solid #212121;
-            border-radius: 19px;
-
-            & span {
-                position: absolute;
-                transform: translate(-50%, 40%);
-                color: #212121;
-            }
-        }
-
-        & .var {
-            line-height: 18px;
-            color: #4B4B4B;
-        }
-
-
+        color: #4B4B4B;
     }
 }
 
+
 .cardboxTages {
     display: flex;
+    margin-top: 10px;
 }
 
 .tags {

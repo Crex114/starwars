@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
 }
-    
+
 .hide {
     opacity: 0;
     pointer-events: none;
@@ -23,10 +23,76 @@
 }
 
 .content {
-    padding: 20px;
-    border-radius: 12px;
-    background-color: white;
-    width: 400px;
-    height: 400px;
+    display: grid;
+    grid-template-columns: 365px 430px;
+    border-radius: 16px;
     transition: 0.4s all;
+}
+
+.avatar {
+    position: relative;
+    padding: 25px;
+    background: linear-gradient(#1F2A63 100%);
+}
+
+.img {
+    height: 315px;
+    width: 315px;
+
+    & img {
+        width: 315px;
+        height: 315px;
+    }
+}
+
+.cardboxTages {
+    position: absolute;
+    margin: 0;
+    bottom: 4.5px;
+    right: 30px;
+}
+
+.name {
+    margin-bottom: 30px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    color: #FDFDFD;
+    text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+}
+
+.color {
+    width: 264px;
+    height: 104px;
+    background: #FDFDFD;
+    box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+    border-radius: 8px;
+    padding: 25px;
+
+    & div {
+        font-family: 'Karla';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        color: #000000;
+    }
+}
+
+.parambody {
+    margin: 75px 24px 0 0;
+    padding: 8px 24px;
+    background: #FDFDFD;
+    box-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);
+    border-radius: 8px;
+}
+
+
+.info {
+    padding: 37px 10px 25px 10px;
+    background: linear-gradient(180deg, #17002F 42.19%, #1F2A63 100%);
 }
