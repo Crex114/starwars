@@ -83,16 +83,15 @@
     }
 }
 
-.parambody {
-    margin: 75px 24px 0 0;
-    padding: 8px 24px;
-    background: #FDFDFD;
-    box-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);
-    border-radius: 8px;
-}
-
-
 .info {
     padding: 37px 10px 25px 10px;
     background: linear-gradient(180deg, #17002F 42.19%, #1F2A63 100%);
+}
+
+.info div:nth-child(3) > div {
+        margin: 75px 24px 0 0;
+        padding: 8px 24px;
+        background: #FDFDFD;
+        box-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);
+        border-radius: 8px;
 }

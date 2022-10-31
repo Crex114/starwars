@@ -17,89 +17,14 @@
     cursor: pointer;
     box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
 
-    & .name {
-        h3 {
-            margin: 0;
-            font-family: 'Karla';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 21px;
-        }
-
+    h3 {
+        margin: 0;
+        font-family: 'Karla';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
     }
-}
-
-.wrapperparam {
-    display: flex;
-}
-
-.parambody {
-    display: grid;
-    grid-template-columns: 38px;
-    grid-template-rows: 38px 18px;
-    gap: 8px 0;
-    margin: 18px 14px 0 0;
-    text-align: center;
-    font-family: 'Karla';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
-
-    & .num {
-        border: 3px solid #212121;
-        border-radius: 19px;
-
-        & span {
-            position: absolute;
-            transform: translate(-50%, 40%);
-            color: #212121;
-        }
-    }
-
-    & .var {
-        line-height: 18px;
-        color: #4B4B4B;
-    }
-}
-
-
-.cardboxTages {
-    display: flex;
-    margin-top: 10px;
-}
-
-.tags {
-    display: inline-block;
-    height: 16px;
-    padding: 0 15px;
-    margin-right: 6px;
-    box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
-    border-radius: 11px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-    color: #212121;
-}
-
-.male {
-    background: #73D677;
-}
-
-.female {
-    background: #C956FF;
-}
-
-.hermaphrodite {
-    background: #F5DB13;
-}
-
-.birth {
-    background: #07D6F2;
 }
 
 .pages {

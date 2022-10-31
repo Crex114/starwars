@@ -9,7 +9,7 @@ import { createPages } from "../../utils/pagesCreator";
 import styles from '../../styles/Peoples.module.scss'
 import Peoples from "../../components/Peoples";
 import loader from '../../images/loader.png'
-import ModalPeoples from '../../components/ModalPeoples.js';
+import PeoplesItem from '../../components/PeoplesItem.js';
 
 const People = () => {
 
@@ -56,25 +56,22 @@ const People = () => {
 					onChange={(e) => setSearchValue(e.target.value)}
 					type="text" placeholder="find..." />
 			</div>
-			<div className={styles.maincontent}>
-				{
-					isFetching === false
-						?
-						<div className={styles.wrapper}>
-							{peoples.map((data, index) =>
-								<div className={styles.card}
-									key={index}
-									onClick={() => modal(data)}>
-									<Peoples item={data} />
-								</div>
-							)}
-						</div>
-						:
-						<div className={styles.loader}>
-							<Image src={loader} width={100} height={100} alt="logo" />
-						</div>
-				}
-			</div>
+			{isFetching === false
+					?
+					<div className={styles.wrapper}>
+						{peoples.map((data, index) =>
+							<div className={styles.card}
+								key={index}
+								onClick={() => modal(data)}>
+								<Peoples item={data} />
+							</div>
+						)}
+					</div>
+					:
+					<div className={styles.loader}>
+						<Image src={loader} width={100} height={100} alt="loading" />
+					</div>
+			}
 
 			<div className={styles.pages}>
 				{pages.map((page, index) => <span
@@ -83,7 +80,7 @@ const People = () => {
 					onClick={() => dispatch(setCurrentPage(page))}></span>)}
 			</div>
 
-			<ModalPeoples active={modalActive} setActive={setModalActive} item={item} />
+			<PeoplesItem active={modalActive} setActive={setModalActive} item={item} />
 		</>
 	);
 };
